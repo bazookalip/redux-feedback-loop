@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from '../Header/Header'
+class Submit extends Component {
 
-class ReviewFeedback extends Component {
 
+
+
+    onSubmit = () => {
+      this.props.history.push('/success');
+    }
 
     render() {
         return (
 
+            <>
+
+            <Header/>
 
             <div className="container">
                 <h1>Review Your Feedback</h1>
@@ -17,9 +26,9 @@ class ReviewFeedback extends Component {
                     <li> Support: {this.props.supported}</li>
                     <li> Comments: {this.props.comments}</li>
                 </ul>
-                <button>Incomplete</button>
+                <button onClick={this.onSubmit}>Submit</button>
             </div>
-
+            </>
 
         );
     }
@@ -30,4 +39,4 @@ const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapReduxStateToProps)(ReviewFeedback);
+export default connect(mapReduxStateToProps)(Submit);

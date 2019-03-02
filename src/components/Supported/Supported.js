@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux';
-
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 
 class Supported extends Component {
 
-
-    onSubmit() {
-        console.log('clicked!')
+    state = {
+        feeling: 0,
     }
 
+    onNextClick = () => {
+        this.props.dispatch({ type: 'SUPPORTED', payload: this.state.feeling })
+        this.props.history.push('/comments');
+    }
 
+    onChange = (event) => {
+        this.setState({
+            feeling: event.target.value
+        })
+    }
 
     render() {
         return (
@@ -18,21 +26,10 @@ class Supported extends Component {
                 <Header />
                 <div className="container">
                     <h1>How well are you being supported? </h1>
-
-                    <input type="number" name="quantity" min="1" max="5" placeholder="5" />
-                    <button onSubmit={this.onSubmit}>Next</button>
+                    <input onChange={this.onChange} type="number" name="quantity" min="0" max="5" placeholder="0" />
+                    <button onClick={this.onNextClick} onSubmit={this.onSubmit}>Next</button>
                 </div>
-                <div className="container">
-                    <h1>Review Your Feedback</h1>
-
-                    <ul>
-                        <li> Feelings: 5</li>
-                        <li> Understanding: 5</li>
-                        <li> Support: 5</li>
-                        <li> Comments: This rocks</li>
-                        <li><button>Incomplete</button></li>
-                    </ul>
-                </div>
+                <ReviewFeedback/>
 
             </>
         );

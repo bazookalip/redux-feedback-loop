@@ -9,13 +9,14 @@ body {
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #414346;
   min-height: 100px;
   padding: 20px;
   color: rgb(252, 249, 249);
   border: 1px solid black;
   padding: 10px;
   text-align: center;
+  font-size: 28px;
 }
 
 .App-title {
@@ -37,21 +38,7 @@ body {
   margin-top: 20px;
 }
 
-button {
-  background-color: rgb(115, 117, 115); /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 8px;
-  margin: 10px;
-  font-family: 'Roboto Mono', monospace;
-  
-  
-}
+
 
 
 input {
@@ -64,4 +51,26 @@ input {
 
 ul {
   list-style-type: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: rgb(40, 41, 40);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px rgb(36, 35, 35);
+  margin: 25px;
+}
+
+button:hover {background-color: #616661}
+
+button:active {
+  background-color: #677067;
+  box-shadow: 0 3px rgb(51, 50, 50);
+  transform: translateY(4px);
 }

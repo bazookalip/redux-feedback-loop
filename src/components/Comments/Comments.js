@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux';
-
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
 
 class Comments extends Component {
 
 
-    onSubmit() {
-        console.log('clicked!')
+    state = {
+        feeling: '',
     }
 
+    onNextClick = () => {
+        this.props.dispatch({ type: 'COMMENTS', payload: this.state.feeling })
+        this.props.history.push('/submit');
+    }
+
+    onChange = (event) => {
+        this.setState({
+            feeling: event.target.value
+        })
+    }
 
 
     render() {
@@ -18,20 +28,10 @@ class Comments extends Component {
                 <Header />
                 <div className="container">
                     <h1>Any comments you want to leave?</h1>
-
-                    <input type="text" />
-                    <button onSubmit={this.onSubmit}>Next</button>
+                    <input onChange={this.onChange} type="text" />
+                    <button onClick={this.onNextClick}>Next</button>
                 </div>
-                <div className="container">
-                    <h1>Review Your Feedback</h1>
-
-                    <ul>
-                        <li> Feelings: 5</li>
-                        <li> Understanding: 5</li>
-                        <li> Support: 5</li>
-                        <li> Comments: This rocks</li>
-                    </ul>
-                </div>
+                <ReviewFeedback/>
 
             </>
         );
