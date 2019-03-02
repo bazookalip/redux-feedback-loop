@@ -12,7 +12,7 @@ class ReviewFeedback extends Component {
         return (
             <>
                 <header className="App-header">
-                    <h1 className="App-title"></h1>
+                   
 
                 </header>
 
