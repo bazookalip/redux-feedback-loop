@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
+
+
+
+
+
 class Understanding extends Component {
-
-
-
     state = {
-        feeling: 0,
+        understanding: 0,
     }
 
     onNextClick = () => {
-        this.props.dispatch({ type: 'UNDERSTANDING', payload: this.state.feeling })
+        this.props.dispatch({ type: 'UNDERSTANDING', payload: this.state.understanding })
         this.props.history.push('/supported');
     }
 
-    onChangeFunction = (event) => {
+    onChange = (event) => {
         this.setState({
-            feeling: event.target.value
+            understanding: event.target.value
         })
     }
 

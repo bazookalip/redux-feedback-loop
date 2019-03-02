@@ -5,7 +5,7 @@ class Header extends Component {
         return (
 
             <header className="App-header">
-                
+               <h2>Redux Feedback Loop</h2> 
               
             </header>
 

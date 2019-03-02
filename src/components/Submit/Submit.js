@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../Header/Header'
+import axios from 'axios';
+
+
 class Submit extends Component {
 
-
+    
 
 
     onSubmit = () => {
-      this.props.history.push('/success');
+        axios({
+            method: 'POST',
+            url: '/results',
+            data: {
+                feeling: this.props.feelings,
+                understanding: this.props.understanding,
+                support: this.props.supported,
+                comments: this.props.comments
+            }
+        }).then(() => {
+            this.props.history.push('/success')
+            console.log('in post .then')
+        })
+
+      
     }
 
     render() {

@@ -16,8 +16,9 @@ class ReviewFeedback extends Component {
                     <li> Understanding: {this.props.understanding} </li>
                     <li> Support: {this.props.supported}</li>
                     <li> Comments: {this.props.comments}</li>
+                    <li><button>Incomplete</button></li>
                 </ul>
-                <button>Incomplete</button>
+               
             </div>
 
 

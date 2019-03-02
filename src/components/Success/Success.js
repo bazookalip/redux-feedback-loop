@@ -17,7 +17,7 @@ class ReviewFeedback extends Component {
                 </header>
 
                 <div className="container">
-                    <h1>Thank You!</h1>
+                    <h1>Thank You</h1>
                     <button onClick={this.onSubmit}>Leave New Feedback</button>
                 </div>
 
