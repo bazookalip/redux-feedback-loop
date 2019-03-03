@@ -34,6 +34,21 @@ class Admin extends Component {
         })
     }
 
+
+    adminList () {
+        return  this.state.results.map(results =>
+                            <tr>
+                            <td> {results.id} </td>
+                            <td> {results.feeling} </td>
+                            <td>{results.understanding}</td>
+                            <td>{results.support}</td>  
+                            <td>{results.comments}</td>
+                            <td><button>delete</button></td>
+                                
+                            </tr>
+                        )
+    }
+
     render() {
         console.log(this.state.results)
         return (
@@ -43,22 +58,15 @@ class Admin extends Component {
               <Header/>
                 <table>
                     <tr>
+                        <th>ID</th>
                         <th>Feeling</th>
                         <th>Understanding</th>
                         <th>Support</th>
                         <th>Comments</th>
+                        <th>Delete</th>
                     </tr>
                     <tbody>
-                        <tr> {this.state.results.map(results =>
-                            <>
-                                
-                            <td> {results.feeling} </td>
-                            <td>{results.understanding}</td>
-                            <td>{results.support}</td>  
-                            <td>{results.comments}</td>
-                                
-                            </>
-                        )}</tr>
+                        {this.adminList()}
                     </tbody>
                  
                 </table>
