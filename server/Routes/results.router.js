@@ -23,4 +23,20 @@ router.post('/', (req, res) => {
         }))
 })
 
+
+
+
+router.delete('/:id', (req, res) => {
+    console.log('/ DELETE request was hit');
+    console.log('req.params', req.params);
+    pool.query(`DELETE FROM "feedback" WHERE "id"=$1;`, [req.params.id])
+        .then(() => {
+            res.sendStatus(204);
+        }).catch(error => {
+            console.log('there was an error on the delete query', error);
+            res.sendStatus(500);
+        });
+});
+
+
 module.exports = router;

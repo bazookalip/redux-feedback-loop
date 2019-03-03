@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux';
-import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
+import Submit from '../Submit/Submit'
 
 class Comments extends Component {
 
@@ -31,7 +31,7 @@ class Comments extends Component {
                     <input onChange={this.onChange} type="text" />
                     <button onClick={this.onNextClick}>Next</button>
                 </div>
-                <ReviewFeedback/>
+                <Submit/>
 
             </>
         );

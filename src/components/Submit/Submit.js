@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../Header/Header'
 import axios from 'axios';
 
 
@@ -25,7 +24,6 @@ class Submit extends Component {
             }
         }).then(() => {
             this.props.history.push('/success')
-            console.log('in post .then')
         })
         this.setState = {
             feelings: '',
@@ -38,11 +36,25 @@ class Submit extends Component {
     }
 
     render() {
+        let button = null;
+
+        
+
+        if (this.props.reducer.feelings !== '' && this.props.reducer.understanding !=='' && this.props.reducer.support !== '' && this.props.reducer.comment !== '') 
+            { 
+                button = <button onClick={this.onSubmit}>Submit</button>
+            }
+        else {
+            button = <button disabled>Incomplete</button>
+        }
+
+        
+
         return (
 
             <>
 
-            <Header/>
+            {/* <Header/> */}
 
             <div className="container">
                 <h1>Review Your Feedback</h1>
@@ -53,7 +65,8 @@ class Submit extends Component {
                     <li> Support: {this.props.reducer.support}</li>
                     <li> Comments: {this.props.reducer.comment}</li>
                 </ul>
-                <button onClick={this.onSubmit}>Submit</button>
+                {button}
+               
             </div>
             </>
 

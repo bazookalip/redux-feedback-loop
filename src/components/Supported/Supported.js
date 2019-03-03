@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux';
-import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import Submit from '../Submit/Submit'
 
 class Supported extends Component {
 
@@ -29,7 +29,7 @@ class Supported extends Component {
                     <input onChange={this.onChange} type="number" name="quantity" min="0" max="5" placeholder="0" />
                     <button onClick={this.onNextClick} onSubmit={this.onSubmit}>Next</button>
                 </div>
-                <ReviewFeedback/>
+                <Submit/>
 
             </>
         );

@@ -5,6 +5,7 @@ class ReviewFeedback extends Component {
 
 
     onSubmit = () => {
+        this.props.dispatch({ type: 'RESET' });
         this.props.history.push('/');
     }
 

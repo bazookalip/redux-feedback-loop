@@ -16,7 +16,12 @@ const reducer = (state = reduxState, action) => {
         return {...state, support: action.payload}
     } else if (action.type === 'COMMENTS') {
         return {...state, comment: action.payload}
+    } else if (action.type === 'RESET') {
+        return {comment: ''}
     }
+
+
+
     return state
 }
 

@@ -9,54 +9,67 @@ class Admin extends Component {
     }
 
 
-    onSubmit = () => {
-        this.props.history.push('/');
-    }
+    deleteButton = (resultsId) => {
+console.log('delete was clicked');
 
-    componentDidMount() {
-        // console.log('in component did mount');
+    axios({
+        method: 'DELETE',
+        url: '/results/' + resultsId
+    }).then(() => {
         this.getResults();
-    }
-
-    getResults = () => {
-        //make call to server using axios
-        axios({
-            method: 'GET',
-            url: '/results',
-        }).then((response) => {
-            //  console.log('data here', response.data);
-            this.setState({
-                results: response.data
-            });
-        }).catch((error) => {
-            alert('could not get results');
-            console.log('could not get results', error);
-        })
-    }
+    })
+}
 
 
-    adminList () {
-        return  this.state.results.map(results =>
-                            <tr>
-                            <td> {results.id} </td>
-                            <td> {results.feeling} </td>
-                            <td>{results.understanding}</td>
-                            <td>{results.support}</td>  
-                            <td>{results.comments}</td>
-                            <td><button>delete</button></td>
-                                
-                            </tr>
-                        )
-    }
+onSubmit = () => {
+    this.props.history.push('/');
+}
 
-    render() {
-        console.log(this.state.results)
-        return (
-        
-            <div className="App">
-               
-              <Header/>
-                <table>
+componentDidMount() {
+    // console.log('in component did mount');
+    this.getResults();
+}
+
+getResults = () => {
+    //make call to server using axios
+    axios({
+        method: 'GET',
+        url: '/results',
+    }).then((response) => {
+        //  console.log('data here', response.data);
+        this.setState({
+            results: response.data
+        });
+    }).catch((error) => {
+        alert('could not get results');
+        console.log('could not get results', error);
+    })
+}
+
+
+adminList() {
+    return this.state.results.map(results =>
+        <tr key={results.id}>
+            <td> {results.id} </td>
+            <td> {results.feeling} </td>
+            <td>{results.understanding}</td>
+            <td>{results.support}</td>
+            <td>{results.comments}</td>
+            <td><button onClick={() => this.deleteButton(results.id)} className="deleteButton">Delete</button></td>
+
+        </tr>
+    )
+}
+
+render() {
+    console.log(this.state.results)
+    return (
+
+        <div className="App">
+
+            <Header />
+            <table>
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>Feeling</th>
@@ -65,18 +78,19 @@ class Admin extends Component {
                         <th>Comments</th>
                         <th>Delete</th>
                     </tr>
-                    <tbody>
-                        {this.adminList()}
-                    </tbody>
-                 
-                </table>
+                </thead>
+                <tbody>
+                    {this.adminList()}
+                </tbody>
 
-                <button onClick={this.onSubmit}>Home</button>
+            </table>
 
-            </div>
-            
-        );
-    }
+            <button onClick={this.onSubmit}>Home</button>
+
+        </div>
+
+    );
+}
 }
 
 export default Admin;
