@@ -5,45 +5,25 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
+const reduxState = { feelings: '', understanding: '', support: '', comment: '' };
 
-const feelings = (state = 0, action) => {
+const reducer = (state = reduxState, action) => {
     if (action.type === 'FEELING') {
-        console.log('in feeling info,', action.payload)
-        return action.payload
+        return { ...state, feelings: action.payload}
+    } else if (action.type === 'UNDERSTANDING') {
+        return {...state, understanding: action.payload }
+    }else if (action.type === 'SUPPORTED') {
+        return {...state, support: action.payload}
+    } else if (action.type === 'COMMENTS') {
+        return {...state, comment: action.payload}
     }
     return state
 }
 
-const understanding = (state = 0, action) => {
-    if (action.type === 'UNDERSTANDING') {
-        console.log('in understand info,', action.payload)
-        return action.payload
-    }
-    return state
-}
-
-const supported = (state = 0, action) => {
-    if (action.type === 'SUPPORTED') {
-        console.log('in supported info,', action.payload)
-        return action.payload
-    }
-    return state
-}
-
-const comments = (state = "", action) => {
-    if (action.type === 'COMMENTS') {
-        console.log('in comments info,', action.payload)
-        return action.payload
-    }
-    return state
-}
 
 const storeInstance = createStore(
     combineReducers({
-    feelings,
-    understanding,
-    supported,
-    comments,
+    reducer,
     }),
 );
 

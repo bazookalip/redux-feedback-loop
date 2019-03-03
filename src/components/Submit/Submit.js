@@ -6,23 +6,33 @@ import axios from 'axios';
 
 class Submit extends Component {
 
+    state = {
+        feelings: '',
+        understanding: '',
+        supported: '',
+        comments: '',
+    }
     
-
-
     onSubmit = () => {
         axios({
             method: 'POST',
             url: '/results',
             data: {
-                feeling: this.props.feelings,
-                understanding: this.props.understanding,
-                support: this.props.supported,
-                comments: this.props.comments
+                feeling: this.props.reducer.feelings,
+                understanding: this.props.reducer.understanding,
+                support: this.props.reducer.support,
+                comments: this.props.reducer.comment,
             }
         }).then(() => {
             this.props.history.push('/success')
             console.log('in post .then')
         })
+        this.setState = {
+            feelings: '',
+            understanding: '',
+            supported: '',
+            comments: '',
+        }
 
       
     }
@@ -38,10 +48,10 @@ class Submit extends Component {
                 <h1>Review Your Feedback</h1>
 
                 <ul>
-                    <li> Feelings: {this.props.feelings}</li>
-                    <li> Understanding: {this.props.understanding} </li>
-                    <li> Support: {this.props.supported}</li>
-                    <li> Comments: {this.props.comments}</li>
+                    <li> Feelings: {this.props.reducer.feelings}</li>
+                    <li> Understanding: {this.props.reducer.understanding} </li>
+                    <li> Support: {this.props.reducer.support}</li>
+                    <li> Comments: {this.props.reducer.comment}</li>
                 </ul>
                 <button onClick={this.onSubmit}>Submit</button>
             </div>

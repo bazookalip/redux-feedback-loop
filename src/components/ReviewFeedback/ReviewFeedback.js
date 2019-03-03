@@ -12,10 +12,10 @@ class ReviewFeedback extends Component {
                 <h1>Review Your Feedback</h1>
 
                 <ul>
-                    <li> Feelings: {this.props.feelings}</li>
-                    <li> Understanding: {this.props.understanding} </li>
-                    <li> Support: {this.props.supported}</li>
-                    <li> Comments: {this.props.comments}</li>
+                    <li> Feelings: {this.props.reducer.feelings}</li>
+                    <li> Understanding: {this.props.reducer.understanding} </li>
+                    <li> Support: {this.props.reducer.support}</li>
+                    <li> Comments: {this.props.reducer.comment}</li>
                     <li><button>Incomplete</button></li>
                 </ul>
                
