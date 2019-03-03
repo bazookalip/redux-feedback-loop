@@ -8,6 +8,11 @@ class Admin extends Component {
 
     }
 
+
+    onSubmit = () => {
+        this.props.history.push('/');
+    }
+
     componentDidMount() {
         // console.log('in component did mount');
         this.getResults();
@@ -58,7 +63,7 @@ class Admin extends Component {
                  
                 </table>
 
-               
+                <button onClick={this.onSubmit}>Home</button>
 
             </div>
             

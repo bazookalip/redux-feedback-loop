@@ -20,8 +20,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-         
-          {/* When we go to / load the ColorPage */}
+    
           <Route exact path="/" component={HowFeeling} />
           <Route exact path="/understanding" component={Understanding} />
           <Route exact path="/supported" component={Supported} />
