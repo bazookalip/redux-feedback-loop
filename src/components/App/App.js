@@ -19,8 +19,9 @@ class App extends Component {
   render() {
     return (
       <Router>
+
+        {/* Routes to different pages  */}
         <div className="App">
-    
           <Route exact path="/" component={HowFeeling} />
           <Route exact path="/understanding" component={Understanding} />
           <Route exact path="/supported" component={Supported} />

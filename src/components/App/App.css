@@ -64,6 +64,19 @@ ul {
   list-style-type: none;
 }
 
+textarea#styled {
+  padding: 12px 20px;
+  margin: 8px 10px;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+
 button {
   padding: 5px 20px;
   font-size: 18px;
@@ -118,3 +131,4 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   box-shadow: 0 4px rgb(36, 35, 35);
   margin: 5px;
 }
+
