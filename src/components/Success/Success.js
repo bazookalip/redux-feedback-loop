@@ -9,6 +9,10 @@ class ReviewFeedback extends Component {
         this.props.history.push('/');
     }
 
+    onAdmin = () => {
+        this.props.history.push('/admin');
+    }
+
     render() {
         return (
             <>
@@ -19,7 +23,8 @@ class ReviewFeedback extends Component {
 
                 <div className="container">
                     <h1>Thank You</h1>
-                    <button onClick={this.onSubmit}>Leave New Feedback</button>
+                    <button onClick={this.onSubmit}>Leave New Feedback</button> <br/>
+                    <button onClick={this.onAdmin}>Admin Page</button>
                 </div>
 
             </>
